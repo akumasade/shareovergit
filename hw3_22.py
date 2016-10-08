@@ -28,13 +28,23 @@ muc2 = 931.5
 start = 19
 end  = 23
 
-for i in range(19,23):
+a_v = 15.56
+a_s = 17.23
+a_a = 23.28
+a_c = 0.7
+delta = 2
+
+
+#test out Z = 19 to Z = 23 bause why the fuck not
+for i in range(1, 47):
     Z = i
     N = A - Z
     [bener1, bener2] = B(A, Z)#binding energy
-    mass1 = Z*mHc2 + N*mnc2 - bener1 #equation to calculate mass
-    mass2 = Z*mHc2 + N*mnc2 - bener2
+    #mass1 = Z*mHc2 + N*mnc2 - bener1 #equation to calculate mass
+    #mass2 = Z*mHc2 + N*mnc2 - bener2
     
-    print mass1 - A*muc2, mass2 - A*muc2
+    #print mass1 - A*muc2, mass2 - A*muc2
+    print Z, bener1, bener2
 
+#print (4*a_a-mHc2+mnc2) / (2*a_c/(A**(1./3)) + 8*a_a/A)
 

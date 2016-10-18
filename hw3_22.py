@@ -1,12 +1,11 @@
 #for solving HW3 problems 2.2, 2.4
-import numpy as np
 
-#Define constants (in MeV)
+#constant mass energies (in MeV)
 muc2 = 931.494 
 mHc2 = 938.790
 mnc2 = 939.57
 
-#for SEMF (in MeV)
+#factors for SEMF (in MeV)
 a_v = 15.56
 a_s = 17.23
 a_a = 23.28
@@ -25,7 +24,7 @@ def B(A,Z):
 
 def mass(A,Z):
     #equation for calculating mass energy
-    N = A - Z
+    N = A - Z #number of neutrons
     [bener1, bener2] = B(A, Z)#binding energy
     m1 = Z*mHc2 + N*mnc2 - bener1 #using +delta mass
     m2 = Z*mHc2 + N*mnc2 - bener2 #using -delta mass
@@ -38,18 +37,19 @@ A = 46 #mass number defined in problem
 print "Problem 2.2"
 #calculating Z from derivative
 #solved from setting dm/dZ = 0
-print "Z = ", (4*a_a-mHc2+mnc2) / (2*a_c/(A**(1./3)) + 8*a_a/A) 
+#(just plugging in)
+print "Z = ", (4*a_a-mHc2+mnc2) / (2*a_c/(A**(1./3)) + 8*a_a/A) #returns ~21 
 
-print "Z \t mass (MeV)"
+print "Z \t mass (MeV)"#headers
 for i in range(1, 47):
-    Z = i
-    N = A - Z
+    Z = i#looping thru all Z values
     [bener1, bener2] = B(A, Z)#binding energy
-    [mass1, mass2] = mass(A,Z)
+    [mass1, mass2] = mass(A,Z)#mass energy
     
 
     print Z, "\t", mass1
-
+#we see that at Z = 21, the mass is the smallest
+#so we can conclude that it is stable at Z = 21, A = 46
 print "\n"
 #------------------2.4------------------
 
@@ -66,6 +66,5 @@ E = 2*BPd119_1 - BU238_1
 
 print "Problem 2.4"
 print "E = ", E # returns 183.783631102 MeV
-
 
 
